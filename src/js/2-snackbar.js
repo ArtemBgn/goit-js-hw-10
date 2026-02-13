@@ -9,14 +9,14 @@ formEl.addEventListener('submit', onCreatePromis);
 
 function onCreatePromis(e) {
   e.preventDefault();
-  const inpValue = +formEl.delay.value * 1000;
+  const inpValue = +formEl.delay.value;
   const statePromis = formEl.state.value;
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (statePromis === 'fulfilled') {
-        resolve(`✅ Fulfilled promise in ${inpValue}ms`);
+        resolve(inpValue);
       } else {
-        reject(`❌ Rejected promise in ${inpValue}ms`);
+        reject(inpValue);
       }
     }, inpValue);
   });
@@ -24,7 +24,7 @@ function onCreatePromis(e) {
   promise
     .then(result =>
       iziToast.show({
-        message: `${result}`,
+        message: `✅ Fulfilled promise in ${result}ms`,
         backgroundColor: 'rgba(23, 124, 23, 0.7)',
         messageColor: '#FFF',
         position: 'topRight',
@@ -32,7 +32,7 @@ function onCreatePromis(e) {
     )
     .catch(error =>
       iziToast.error({
-        message: `${error}`,
+        message: `❌ Rejected promise in ${error}ms`,
         backgroundColor: 'rgba(173, 41, 41, 0.7)',
         messageColor: '#FFF',
         position: 'topRight',

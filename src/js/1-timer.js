@@ -13,7 +13,6 @@ const timerMinutes = document.querySelector('[data-minutes]');
 const timerSeconds = document.querySelector('[data-seconds]');
 
 btn.addEventListener('click', onTimer);
-console.dir(btn);
 btn.disabled = true;
 
 let timerId = null;
@@ -22,12 +21,11 @@ let userSelectDate = null;
 const options = {
   enableTime: true,
   time_24hr: true,
-  // minDate: 'today',
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
     const today = Date.now();
-    userSelectDate = Date.parse(selectedDates[0]);
+    userSelectDate = selectedDates[0].getTime();
 
     if (userSelectDate <= today) {
       iziToast.error({
@@ -36,6 +34,7 @@ const options = {
         timeout: 3000,
         close: false,
       });
+      btn.disabled = true;
       return;
     }
     btn.disabled = false;
