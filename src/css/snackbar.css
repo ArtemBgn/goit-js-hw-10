@@ -1,0 +1,33 @@
+.cont {
+  padding: 16px 0;
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  background-color: rgba(235, 233, 231, 0.5);
+}
+
+form {
+  width: calc((100% - 24px) / 2);
+}
+
+.l {
+  display: block;
+}
+
+fieldset {
+  margin: 0;
+  width: 100%;
+}
+
+button {
+  margin-top: 8px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0 8px;
+  color: #000;
+  background-color: #babbbd;
+  border: 1px solid #5f6061;
+  border-radius: 4px;
+}
